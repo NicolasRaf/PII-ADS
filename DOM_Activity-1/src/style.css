@@ -1,30 +1,117 @@
+/* ===== Reset Básico ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Body ===== */
 body {
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: rgb(81, 88, 86);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(51, 58, 56);
     color: aliceblue;
+    line-height: 1.6;
+    padding: 20px;
 }
 
-#title h1 {
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
+/* ===== Títulos Gerais ===== */
 h1 {
-    color: black;
+    color: aliceblue;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
+/* ===== Título Principal ===== */
+#title h1 {
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+/* ===== Botões ===== */
 button {
-    background-color:rgba(0, 128, 255, 0.278);
-    color:aliceblue;
+    background-color: rgba(0, 128, 255, 0.278);
+    color: aliceblue;
+    border: none;
     border-radius: 100px;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
     background-color: rgba(0, 128, 255, 0.552);
+    transform: scale(1.05);
 }
 
+/* ===== Containers ===== */
+div {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Parágrafos ===== */
+p {
+    font-size: 1.1rem;
+    margin: 8px 0;
+}
+
+/* ===== Parágrafo Invisível ===== */
 #invisible_paragraph {
     display: none;
+}
+
+/* ===== Resultado do Conteúdo ===== */
+#result p {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* ===== Nova Div de Estilo ===== */
+#style_div {
+    background-color: rgba(255, 255, 255, 0.06);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: background-color 0.5s ease;
+}
+
+#style_paragraph {
+    font-size: 1.2rem;
+    color: aliceblue;
+    transition: all 0.5s ease;
+}
+
+#style_paragraph.changed {
+    color: white;
+    background-color: #007acc;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 122, 204, 0.5);
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 600px) {
+    button {
+        width: 100%;
+    }
+    
+    div {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
 }

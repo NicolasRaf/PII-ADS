@@ -1,8 +1,8 @@
 # Atividade_DOM 1
 
-## 1ª Questão
+## 1ª a 12ª Questão - Resposta no [código](https://github.com/NicolasRaf/PII-ADS/blob/main/DOM_Activity-1/index.html)
 
-## 5ª Questão
+## 5ª Questão - Resposta Textual
 
 A principal diferença esta no que cada um deles retorna:
 
@@ -30,6 +30,4 @@ function mostrarInnerText() {
 function mostrarInnerHTML() {
     resultado.textContent = div.innerHTML;
     console.log('innerHTML:', div.innerHTML);
-
-    // Resultado: 
 ```

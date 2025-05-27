@@ -10,7 +10,7 @@
     <div id="title">
         <h1> Exercícios com DOM</h1>
         <p id="nice_paragraph"> DOM é muito legal!</p>
-        <button id ="nice_button" > Aperte aqui!</button> 
+        <button id="nice_button"> Aperte aqui!</button>
     </div>
 
     <div id="div_paragraphs">
@@ -21,9 +21,10 @@
     </div>
 
     <div id="copy_paragraphs">
-        <button id="count_paragraphs" onclick="contarParagrafos()"> Contar parágrafos</button>
+        <button id="count_paragraphs" onclick="countParagraphs()"> Contar parágrafos</button>
         <p id="result_count"></p>
     </div>  
+
     <div id="delete_paragraph">
         <h1> Apague o parágrafo! </h1>
         <p id="sad_parag"> Este texto será apagado quando você clicar no botão 😢</p>
@@ -39,11 +40,65 @@
     </div>
 
     <div id="result">
-        <button onclick="mostrarTextContent()"> textContent </button>
-        <button onclick="mostrarInnerText()"> innerText </button>
-        <button onclick="mostrarInnerHTML()"> innerHTML </button>
+        <button onclick="showTextContent()"> textContent </button>
+        <button onclick="showInnerText()"> innerText </button>
+        <button onclick="showInnerHTML()"> innerHTML </button>
         <p id="content_caught"></p>
     </div>
+
+    <div id="style_div">
+        <h1>Altere o estilo deste texto!</h1>
+        <p id="style_paragraph">Clique no botão abaixo para mudar meu estilo.</p>
+        <button onclick="toggleStyle()">Mudar Estilo</button>
+    </div>
+
+    <div id="copy_upper_div">
+        <h1> Copiar texto em caixa alta</h1>
+        <input type="text" id="input_upper_src" placeholder="Digite algo">
+        <input type="text" id="input_upper_dst" placeholder="Resultado" readonly>
+        <button onclick="copyToUpperCase()">Copiar UPPERCASE</button>
+    </div>
+
+    <div id="contrast_div">
+        <h1> Botão de alto contraste</h1>
+        <button onclick="enableHighContrast()">Alto Contraste</button>
+        <button onclick="resetContrast()">Resetar Cores</button>
+    </div>
+
+    <div id="font_size_div">
+        <h1> Ajustar tamanho de fonte</h1>
+        <button onclick="increaseFont()">A+</button>
+        <button onclick="decreaseFont()">A-</button>
+    </div>
+
+    <div id="calc_div">
+        <h1> Calculadora</h1>
+        <input type="number" id="calc_num1" placeholder="Núm. 1">
+        <input type="number" id="calc_num2" placeholder="Núm. 2"><br>
+        <label><input type="radio" name="op" value="+" checked> + </label>
+        <label><input type="radio" name="op" value="-"> – </label>
+        <label><input type="radio" name="op" value="*"> × </label>
+        <label><input type="radio" name="op" value="/"> ÷ </label><br>
+        <button onclick="calculate()">Calcular</button>
+        <p id="calc_result"></p>
+    </div>
+
+    <div id="list_div">
+        <h1> Adicionar em &lt;ul&gt;</h1>
+        <input type="text" id="list_input" placeholder="Item para lista">
+        <button onclick="addToList()">Adicionar à Lista</button>
+        <ul id="minhaLista"></ul>
+    </div>
+
+    <div id="select_div">
+        <h1> Adicionar em &lt;select&gt;</h1>
+        <input type="text" id="select_input" placeholder="Item para select">
+        <button onclick="addToSelect()">Adicionar ao Select</button>
+        <select id="meuSelect">
+            <option disabled selected>Escolha</option>
+        </select>
+    </div>
+
     <script src="src/script.js"></script>
 </body>
 </html>
