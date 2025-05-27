@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style.css">
+    <title>Atividade DOM</title>
+</head>
+<body>
+    <div id="title">
+        <h1> Exercícios com DOM</h1>
+        <p id="nice_paragraph"> DOM é muito legal!</p>
+        <button id ="nice_button" > Aperte aqui!</button> 
+    </div>
+
+    <div id="div_paragraphs">
+        <h1> Aqui há alguns parágrafos!</h1>
+        <p> Parágrafos 1</p>
+        <p> Parágrafos 2</p>
+        <p> Parágrafos 3</p>
+    </div>
+
+    <div id="copy_paragraphs">
+        <button id="count_paragraphs" onclick="contarParagrafos()"> Contar parágrafos</button>
+        <p id="result_count"></p>
+    </div>  
+    <div id="delete_paragraph">
+        <h1> Apague o parágrafo! </h1>
+        <p id="sad_parag"> Este texto será apagado quando você clicar no botão 😢</p>
+        <button id="delete_button"> Apague o texto! </button>
+    </div>
+
+    <div id="content">
+        <h1> Exercícios com innerText, innerHTML e textContent</h1>
+        <p> Parágrafos 1</p>
+        <p> Parágrafos 2</p>
+        <p> Parágrafos 3</p>
+        <p id="invisible_paragraph"> Paragrafo invisivel, ele não irá aparecer, somente com o textContent</p>
+    </div>
+
+    <div id="result">
+        <button onclick="mostrarTextContent()"> textContent </button>
+        <button onclick="mostrarInnerText()"> innerText </button>
+        <button onclick="mostrarInnerHTML()"> innerHTML </button>
+        <p id="content_caught"></p>
+    </div>
+    <script src="src/script.js"></script>
+</body>
+</html>
