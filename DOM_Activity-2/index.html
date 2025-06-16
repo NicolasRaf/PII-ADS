@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade D.O.M 2</title>
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+    <h1>Atividade D.O.M 2</h1>
+
+    <div class="container">
+        <h2>1ª Questão</h2>
+        <input id="inputError" type="text" placeholder="Insira sua mensagem">
+        <button id="errorButton">Mostrar Erro</button>
+        <div id="errorMessage1" class="hidden error">O campo deve ser preenchido</div>
+    </div>
+
+    <div class="container">
+        <h2>2ª Questão</h2>
+        <input type="text" id="textBox" placeholder="Digite o texto">
+        <button id="showButton">Exibir</button>
+        <div id="output"></div>
+    </div>
+
+    <div class="container">
+        <h2>3ª Questão</h2>
+        <input type="number" id="interactions" placeholder="Número de Interações">
+        <input type="number" id="views" placeholder="Número de Visualizações">
+        <button id="calculateButton">Calcular Engajamento</button>
+        <div id="errorMessage3" class="hidden error">Insira os valores corretos</div>
+        <div id="engagementResult"></div>
+    </div>
+
+    <div class="container">
+        <h2>4ª Questão</h2>
+        <input type="file" id="upImage" accept="image/*">
+        <button id="imageButton">Mostrar Imagem</button>
+        <div id="errorMessage4" class="hidden error">Imagem não carregada!</div>
+        <div id="imageOutput"></div>
+    </div>
+
+
+     <div class="container">
+        <h2>5ª Questão</h2>
+        <label>Escolha uma imagem:
+        <select id="imageSelector" name="images">
+            <option value="">Escolha uma opção</option>
+            <option value="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg">Imagem 1</option>
+            <option value="https://images.pexels.com/photos/1643456/pexels-photo-1643456.jpeg">Imagem 2</option>
+            <option value="https://images.pexels.com/photos/96938/pexels-photo-96938.jpeg">Imagem 3</option>
+        </select>
+        </label>
+        <div id="optionImageSelected"></div>
+    </div>
+
+    <div class="container">
+        <h2>6ª Questão</h2>
+        <div>
+            <input type="checkbox" id="facebook" name="socialMedia" value="Facebook">
+            <label for="facebook">Facebook</label>
+        </div>
+        <div>
+            <input type="checkbox" id="twitter" name="socialMedia" value="Twitter">
+            <label for="twitter">Twitter</label>
+        </div>
+        <div>
+            <input type="checkbox" id="instagram" name="socialMedia" value="Instagram">
+            <label for="instagram">Instagram</label>
+        </div>
+        <div>
+            <input type="checkbox" id="linkedin" name="socialMedia" value="LinkedIn">
+            <label for="linkedin">LinkedIn</label>
+        </div>
+        <div>
+            <input type="checkbox" id="tiktok" name="socialMedia" value="TikTok">
+            <label for="tiktok">TikTok</label>
+        </div>
+
+        <button type="button" id="sendButton">Enviar Seleção</button>
+        <div id="selectedsNetworks"></div>  
+        <div class = "hidden error" id="errorMessage5"></div>
+
+    </div>
+
+</body>
+<script src="src/script.js"></script>
+</html>

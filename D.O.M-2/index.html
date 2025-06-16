@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.O.M Parte 2</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <h1> D.O.M Parte 2 </h1>
+    <div id="resultado"></div>
+    <script>
+        document.getElementById('resultado').innerHTML = "<p id = 'p1'> hello world</p>"
+    </script>
+
+    <h2>Criando um parágrafo</h2>
+    <button id="botaoCriaParagarfo">Criar Paragrafo</button>
+    <div id="resultado1"></div>
+
+    <h2>Criando Alguma Coisa</h2>
+    <input id="tagElemento" placeholder="Nome da tag">
+    <input id="id" placeholder="Id"> 
+    <input id="texto" placeholder="Texto"> 
+
+    <input id="atributo" placeholder="Atributo">
+    <input id="valor" placeholder="Valor">
+    <input id="tagPai" placeholder="Elemento Pai">
+
+    <button id="botaoCriarElemento">Criar Elemento</button> 
+    <div id="resultado2"></div>
+
+    <h2>Criando uma Tabela</h2>
+    <input type="text" id="descricao" placeholder="Descrição da Tabela">
+    <input type="text" id="percentual" placeholder="Percentual concluido">
+    
+    <button id="botaoAdicionarTarefa">Adicionar Tarefa</button>
+
+    <br><br>
+    <table id="tarefas">
+        <tr>
+            <th>#</th>
+            <th>Descrição</th>
+            <th>% concluido</th>
+            <th>Ações</th>
+        </tr>
+    </table>
+
+    <br><br><br><br><br><br>
+    
+</body>
+</html>
