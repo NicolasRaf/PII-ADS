@@ -1,16 +1,11 @@
-
-
 // --- 1ª Questão ---
 function showError(message, elementId, duration = 3000) {
     const errorMessageElement = document.getElementById(elementId);
     
-    // Define o texto da mensagem
     errorMessageElement.textContent = message;
 
-    // Mostra o elemento removendo a classe 'hidden'
     errorMessageElement.classList.remove('hidden');
 
-    // Esconde o elemento após o tempo especificado
     setTimeout(function() {
         errorMessageElement.classList.add('hidden');
     }, duration);
@@ -19,14 +14,7 @@ function showError(message, elementId, duration = 3000) {
 document.getElementById('errorButton').addEventListener('click', function() {
     const inputError = document.getElementById('inputError');
     const message = inputError.value.trim();
-
-    if (message === '') {
-        // Usa a função genérica para mostrar um erro padrão
-        showError('O campo deve ser preenchido.', 'errorMessage1');
-    } else {
-        // Usa a função genérica para mostrar a mensagem do usuário
-        showError(message, 'errorMessage1');
-    }
+    showError(message, 'errorMessage1');
 });
 
 // --- 2ª Questão ---
@@ -36,7 +24,7 @@ document.getElementById('showButton').addEventListener('click', function() {
     let outputText = textBox.value.trim();
 
     if (outputText === '') {
-        outputText = 'O campo deve ser preenchido';
+        showError("O campo não pode estar vazio!", 'errorMessage1.1');
     }
     
     outputDiv.innerHTML = outputText;
@@ -65,6 +53,8 @@ document.getElementById('calculateButton').addEventListener('click', function() 
 
 // --- 4ª Questão ---
 document.getElementById('imageButton').addEventListener('click', function(){
+    document.getElementById('imageOutput').innerHTML = '';
+
     let image = document.createElement('img');
     let receiveImage = document.getElementById('upImage').files[0];
 
@@ -75,7 +65,6 @@ document.getElementById('imageButton').addEventListener('click', function(){
     }
 
     image.src = URL.createObjectURL(receiveImage);
-
     document.getElementById('imageOutput').appendChild(image);
 });
 
@@ -96,12 +85,102 @@ selectElement.addEventListener("change", (event) => {
 // --- 6ª Questão ---
 document.getElementById('sendButton').addEventListener('click', function(){
     let itens = document.getElementsByName('socialMedia');
-    anyChecked = false;
+    let checkedsResponse = Array.from(itens).filter(item => item.checked);
 
-    itens.forEach( (item) => (item.checked) ? anyChecked = true : false)
-    if (anyChecked === false) 
-        showError('Selecione ao menos uma opção!', 'errorMessage5')
+    if (checkedsResponse.length <= 0) {
+    document.getElementById('selectedsNetworks').innerHTML = "";
+        showError('Selecione ao menos uma opção!', 'errorMessage5');
+        return;
+    }
 
-    
+    const listaDeItens = checkedsResponse
+    .map(element => `<li>${element.value}</li>`) 
+    .join(''); 
+
+    const resultadoFinalHTML = `
+    <p>Redes Selecionadas:</p>
+    <ul>${listaDeItens}</ul>`;
+
+    document.getElementById('selectedsNetworks').innerHTML = resultadoFinalHTML;
 });
 
+// --- 7ª, 8ª e 9ª Questões ---
+const hashtagInput = document.getElementById('hashtagInput');
+const addHashtagButton = document.getElementById('addHashtagButton');
+const removeHashtagButton = document.getElementById('removeHashtagButton');
+const hashtagList = document.getElementById('hashtagList');
+
+    addHashtagButton.addEventListener('click', function() {
+    const newHashtagText = hashtagInput.value.trim();
+
+    if (newHashtagText === '') {
+        showError('Hashtag não pode ser vazia.', 'errorMessage7');
+        return;
+    }
+    if (newHashtagText.length < 2) {
+        showError('Hashtag deve ter ao menos 2 caracteres.', 'errorMessage7');
+        return;
+    }
+    if (hashtagList.options.length >= 5) {
+        showError('A lista não pode ter mais que 5 hashtags.', 'errorMessage7');
+        return;
+    }
+
+    const existingHashtags = Array.from(hashtagList.options).map(option => option.value);
+    if (existingHashtags.includes(newHashtagText)) {
+        showError('Hashtag já existe na lista.', 'errorMessage7');
+        return;
+    }
+    
+    const newOption = document.createElement('option');
+    newOption.textContent = newHashtagText;
+    newOption.value = newHashtagText;
+
+    hashtagList.appendChild(newOption);
+
+    hashtagInput.value = '';
+});
+
+removeHashtagButton.addEventListener('click', function() {
+    const selectedOptions = Array.from(hashtagList.selectedOptions);
+
+    if (selectedOptions.length === 0) {
+        showError('Selecione uma hashtag para remover.', 'errorMessage7');
+        return;
+    }
+
+    selectedOptions.forEach(option => {
+        hashtagList.removeChild(option);
+    });
+});
+
+// --- 10ª e 11ª Questões ---
+const availableAssets = document.getElementById('availableAssets');
+const investmentWallet = document.getElementById('investmentWallet');
+const moveRightButton = document.getElementById('moveRightButton');
+const moveLeftButton = document.getElementById('moveLeftButton');
+
+function moveOptions(sourceSelect, destinationSelect) {
+    const selectedOptions = Array.from(sourceSelect.selectedOptions);
+
+    if (selectedOptions.length === 0) {
+        showError('Selecione ao menos um ativo para mover.', 'errorMessage10');
+        return;
+    }
+
+    selectedOptions.forEach(option => {
+        destinationSelect.appendChild(option);
+    });
+
+    updateButtonStates();
+}
+
+function updateButtonStates() {
+    moveRightButton.disabled = availableAssets.options.length === 0;
+    moveLeftButton.disabled = investmentWallet.options.length === 0;
+}
+
+moveRightButton.addEventListener('click', () => moveOptions(availableAssets, investmentWallet));
+moveLeftButton.addEventListener('click', () => moveOptions(investmentWallet, availableAssets));
+
+document.addEventListener('DOMContentLoaded', updateButtonStates);

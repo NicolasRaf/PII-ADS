@@ -1,61 +1,230 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f2f2f2;
+/* --- 1. CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --primary-color: #009e47;
+    --accent-color: #ff5900;
+    --text-color: #333;
+    --background-light: #f4f7f6;
+    --background-white: #ffffff;
+    --border-color: #ddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; 
+    background-color: var(--background-light);
+    color: var(--text-color);
+    line-height: 1.6; 
+}
+
+/* --- 2. ESTILOS GERAIS --- */
+
 h1 {
-    color: #009e47;
-    font-size: 40px;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* --- 3. CONTAINER PRINCIPAL --- */
+
+.container {
+    width: 90%; 
+    max-width: 700px; 
+    margin: 30px auto; 
+    background-color: var(--background-white);
+    border: 1px solid var(--border-color);
+    padding: 25px; 
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: box-shadow 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* --- 4. ELEMENTOS DE FORMULÁRIO (BOTÕES E INPUTS) --- */
+
+button, input[type="text"], input[type="number"], input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
     margin-bottom: 10px;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="file"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 158, 71, 0.2);
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button {
-    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-input {
-    border-radius: 1px;
+button:hover {
+    background-color: #008039;
+    transform: translateY(-2px); 
 }
 
-.container {
-    width: 50%;
-    margin: 0 auto;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.container ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
 }
+
+#imageLabel {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+/* --- 5. CLASSES DE UTILIDADE E RESULTADOS --- */
 
 .hidden {
     display: none;
 }
 
 .error {
-    color: red;
+    color: #d93025; 
+    font-weight: 600;
     margin-top: 10px;
 }
 
-#engagementResult {
+#engagementResult, #selectedsNetworks p {
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    text-align: center;
+}
+
+#selectedsNetworks ul {
     margin-top: 10px;
-    font-weight: bold;
-    color: #ff5900;
+}
+
+#selectedsNetworks li {
+    color: var(--primary-color);
+    background-color: #e6f5ec;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-weight: 600;
+}
+
+/* --- 6. ESTILOS ESPECÍFICOS PARA IMAGENS --- */
+#imageOutput img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+#imageOutput img:hover {
+    transform: scale(1.03); 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 #optionImageSelected {
-  display: flex;      
-  flex-wrap: wrap;
-  margin-top: 15px;
-  flex-direction: column;
-  align-items: center;    
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 15px;
 }
 
 #optionImageSelected img {
     max-width: 100%;
-    max-height: 100%;
-    box-shadow: 0px 2px 4px rgb(245, 179, 0);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#optionImageSelected img:hover {
+    transform: scale(1.03); 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}   
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 158, 71, 0.2);
+}
+
+.transfer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.transfer-container .wallet {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.transfer-container .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.transfer-container label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    text-align: center;
 }

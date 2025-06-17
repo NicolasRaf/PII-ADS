@@ -13,13 +13,14 @@
         <h2>1ª Questão</h2>
         <input id="inputError" type="text" placeholder="Insira sua mensagem">
         <button id="errorButton">Mostrar Erro</button>
-        <div id="errorMessage1" class="hidden error">O campo deve ser preenchido</div>
+        <div id="errorMessage1" class="hidden error"></div>
     </div>
 
     <div class="container">
         <h2>2ª Questão</h2>
         <input type="text" id="textBox" placeholder="Digite o texto">
         <button id="showButton">Exibir</button>
+        <div id="errorMessage1.1" class="hidden error">O campo deve ser preenchido</div>
         <div id="output"></div>
     </div>
 
@@ -43,7 +44,7 @@
 
      <div class="container">
         <h2>5ª Questão</h2>
-        <label>Escolha uma imagem:
+        <label id="imageLabel">Escolha uma imagem:
         <select id="imageSelector" name="images">
             <option value="">Escolha uma opção</option>
             <option value="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg">Imagem 1</option>
@@ -81,6 +82,49 @@
         <div id="selectedsNetworks"></div>  
         <div class = "hidden error" id="errorMessage5"></div>
 
+    </div>
+
+    <div class="container">
+        <h2>7ª, 8ª e 9ª Questões</h2>
+        <input type="text" id="hashtagInput" placeholder="Digite sua hashtag (sem #)">
+        <div class="button-group">
+            <button id="addHashtagButton">Adicionar Hashtag</button>
+            <button id="removeHashtagButton">Remover Selecionada</button>
+        </div>
+        <select id="hashtagList" size="5"></select>
+        <div id="errorMessage7" class="hidden error"></div>
+    </div>
+
+    <div class="container">
+        <h2>10ª e 11ª Questões</h2>
+        <div class="transfer-container">
+            <div class="wallet">
+                <label for="availableAssets">Ativos Disponíveis:</label>
+                <select id="availableAssets" size="10" multiple>
+                    <option value="AAPL">Apple (AAPL)</option>
+                    <option value="GOOGL">Google (GOOGL)</option>
+                    <option value="AMZN">Amazon (AMZN)</option>
+                    <option value="MSFT">Microsoft (MSFT)</option>
+                    <option value="TSLA">Tesla (TSLA)</option>
+                    <option value="BRK.B">Berkshire Hathaway (BRK.B)</option>
+                    <option value="FB">Meta (FB)</option>
+                    <option value="V">Visa (V)</option>
+                    <option value="JNJ">Johnson & Johnson (JNJ)</option>
+                    <option value="WMT">Walmart (WMT)</option>
+                </select>
+            </div>
+
+            <div class="buttons">
+                <button id="moveRightButton"> > </button>
+                <button id="moveLeftButton"> < </button>
+            </div>
+
+            <div class="wallet">
+                <label for="investmentWallet">Carteira de Investimentos:</label>
+                <select id="investmentWallet" size="10" multiple></select>
+            </div>
+        </div>
+        <div id="errorMessage10" class="hidden error"></div>
     </div>
 
 </body>
